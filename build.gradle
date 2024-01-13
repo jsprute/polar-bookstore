@@ -20,7 +20,7 @@ repositories {
 
 ext { 
   set('springCloudVersion', "2023.0.0-RC1") 
-  set('testcontainersVersion', "1.17.3")
+  set('testcontainersVersion', "1.19.3")
 }
 
 dependencies {
@@ -32,15 +32,19 @@ dependencies {
 	implementation 'org.springframework.retry:spring-retry'
 	implementation 'org.flywaydb:flyway-core'
 	implementation 'javax.validation:validation-api:2.0.1.Final'
+	implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final'
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
 	testImplementation 'org.testcontainers:postgresql'
+	testImplementation 'javax.el:javax.el-api:2.2.4'
+	testImplementation 'org.glassfish.web:javax.el:2.2.4'
 
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	runtimeOnly 'org.postgresql:postgresql'
 }
+
 
 dependencyManagement {
 	imports {
