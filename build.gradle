@@ -37,8 +37,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
 	testImplementation 'org.testcontainers:postgresql'
-	testImplementation 'javax.el:javax.el-api:2.2.4'
-	testImplementation 'org.glassfish.web:javax.el:2.2.4'
+	testImplementation 'javax.el:javax.el-api:3.0.0'
+	testImplementation 'org.glassfish:javax.el:3.0.0'
 
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
