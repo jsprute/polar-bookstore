@@ -16,9 +16,25 @@ spring:
             host: localhost
             port: 6379
             timeout: 1s
+    session:
+        store-type: redis
+        timeout: 10m
+        redis:
+            namespace: polar:edge
     cloud:
+      config:
+        uri: http://localhost:8888
+        request-connect-timeout: 5000 # 5s
+        request-read-timeout: 5000 # 5s
+        fail-fast: false # In production, set to true
+        retry:
+            max-attempts: 6
+            initial-interval: 1000 # 1s
+            max-interval: 2000 # 2s
+            multiplier: 1.1
         gateway:
             default-filters:
+              - SaveSession
               - name: RequestRateLimiter
                 args:
                     redis-rate-limiter:
