@@ -23,6 +23,11 @@ import org.springframework.context.annotation.Configuration;
 @EnableWebFluxSecurity
 public class SecurityConfig {
 
+	@Bean
+	ServerOAuth2AuthorizedClientRepository authorizedClientRepository() {
+		return new WebSessionServerOAuth2AuthorizedClientRepository();
+	}
+
     @Bean
 	SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http, ReactiveClientRegistrationRepository clientRegistrationRepository) {
 		return http
@@ -57,4 +62,5 @@ public class SecurityConfig {
 		};
 	}
     
+
 }
